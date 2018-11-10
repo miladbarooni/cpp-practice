@@ -185,6 +185,24 @@ public:
 	int remove(Shape& shape){
 
 	}
+	void sort()
+	{
+		Shape* best;
+		for (int i =0 ; i<size; i++)
+		{
+			best = &arr[i];
+			for (int j = i+1 ; j<size; j++)
+			{
+				if (arr[j].getArea()<best->getArea())
+				{
+					best = &arr[j];
+				}
+			}
+			Shape* temp = &arr[i];
+			(arr[i]) = *best;
+			best = temp;
+		}
+	}
 };
 
 int main()
